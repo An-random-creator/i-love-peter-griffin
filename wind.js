@@ -7,11 +7,11 @@
 		var flagRun = 1;
 
 function openWindow(url){
-        aWindow = window.open(url,"_blank", 'menubar=no,status=no,toolbar=noresizable=no,width=400,height=450,titlebar=no,alwaysRaised=yes');
+        aWindow = window.open(url,"_blank", 'menubar=no,status=no,toolbar=noresizable=no,width=400,height=350,titlebar=no,alwaysRaised=yes');
 }
 
 function procreate(){
-		openWindow('hi.html');
+		openWindow('pet.html');
 		}
 
 function newXlt(){
