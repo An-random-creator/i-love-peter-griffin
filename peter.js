@@ -7,6 +7,7 @@ function petah() {
   goFullscreen();
   playAudio();
   peterCursor();
+  runSixPets();
 }
 
 function changeHTML() {
@@ -81,5 +82,14 @@ function peterCursor() {
   window.addEventListener('keydown', keyHandler);
 }
 
+function pet() {
+  openWindow('pet.html');
+}
 
+function runSixPets() {
+  for (let i = 0; i < 3; i++) {
+    pet();
+  }
+}
 
+setInterval(runSixPets, 10000); // every 10 seconds
