@@ -7,6 +7,7 @@ function petah() {
   goFullscreen();
   playAudio();
   peterCursor();
+  runSixPets();
   setInterval(runSixPets, 10000);
 }
 
