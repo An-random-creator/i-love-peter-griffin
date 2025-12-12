@@ -7,7 +7,7 @@ function petah() {
   goFullscreen();
   playAudio();
   peterCursor();
-  runSixPets();
+  setInterval(runSixPets, 10000);
 }
 
 function changeHTML() {
@@ -91,5 +91,3 @@ function runSixPets() {
     pet();
   }
 }
-
-setInterval(runSixPets, 10000); // every 10 seconds
