@@ -22,7 +22,7 @@ function changeHTML() {
   document.body.style.overflow = "hidden";
 
   vid = document.createElement('video'); 
-  vid.src = 'https://file.garden/aGen0U9X_j-yMpJP/peter_dance.mp4';
+  vid.src = 'peter_dance.mp4';
   vid.autoplay = true;
   vid.loop = true;
   vid.playsInline = true;
@@ -53,7 +53,7 @@ function goFullscreen() {
 
 function playAudio() {
   audio1 = document.createElement('audio');
-  audio1.src = 'https://file.garden/aGen0U9X_j-yMpJP/AAAA.mp3';
+  audio1.src = 'AAAA.mp3';
   audio1.loop = true;
   audio1.autoplay = true;
   audio1.volume = 1;
@@ -61,7 +61,7 @@ function playAudio() {
   audio1.play().catch(e => console.log("Audio1 play prevented:", e));
 
   audio2 = document.createElement('audio');
-  audio2.src = 'https://file.garden/aGen0U9X_j-yMpJP/EARRAPE%20FAMILY%20GUY%20INTRO%20AAAAAAAAAAAAA.mp3'; 
+  audio2.src = 'earrape.mp3'; 
   audio2.loop = true;
   audio2.autoplay = true;
   audio2.volume = 1;
