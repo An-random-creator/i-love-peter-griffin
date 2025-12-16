@@ -14,7 +14,7 @@ function petah() {
 function changeHTML() {
   document.body.innerHTML = "";
 
-  document.body.style.backgroundImage = "url('https://babubapi.neocities.org/petah_glitch.gif')";
+  document.body.style.backgroundImage = "url('petah_glitch.gif')";
   document.body.style.backgroundRepeat = "repeat";
   document.body.style.backgroundSize = "auto";
   document.body.style.backgroundPosition = "top left";
