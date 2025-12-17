@@ -4,21 +4,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hi :)</title>
-  <script language="Javascript" src="wind.js"></script>
+  <title>peter</title>
+
+  <script src="/wind.js"></script>
+
   <style>
-    html,body {
+    html, body {
       height: 100%;
       margin: 0;
+      overflow: hidden;
     }
+
     body {
-      /* blue to pink gradient */
-      background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
+
+    body:hover {
+      cursor: none;
+    }
+
+    video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
     h1 {
       color: white;
       font-size: clamp(3rem, 10vw, 8rem);
@@ -27,11 +44,128 @@
       text-align: center;
       font-weight: 700;
       text-shadow: 0 6px 24px rgba(0,0,0,0.18);
-      /* preserve the <br> behavior */
+      z-index: 5;
+      position: relative;
+      pointer-events: none;
+    }
+
+    .corner {
+      position: fixed;
+      width: 170px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .top-left { top: 12px; left: 12px; }
+    .bottom-right { bottom: 12px; right: 12px; }
+
+    .spawn {
+      position: fixed;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .bouncer {
+      position: fixed;
+      z-index: 4;
+      pointer-events: none;
     }
   </style>
 </head>
-<body onload="flagRun=1;playBall();return true;">
-  <h1>placeholder <br>:]</h1>
+
+<body onload="flagRun=1;playBall();startChaos();return true;">
+
+  <video autoplay muted loop playsinline>
+    <source src="/peter_dance.mp4" type="video/mp4">
+  </video>
+
+  <audio id="laugh" src="/pet/peter_laugh.mp3" autoplay loop></audio>
+  <audio id="woah" src="/pet/woah_peter.mp3" autoplay loop></audio>
+  <audio id="error" src="/pet/win.wav" autoplay loop></audio>
+
+  <img src="freedownload.png" class="corner top-left">
+  <img src="scaryoo.png" class="corner bottom-right">
+
+  <h1>peter griffin <br>download</h1>
+
+<script>
+/* ===== RANDOM IMAGE SPAWNER ===== */
+const spawnImages = [
+  "11.png",
+  "error1.png"
+];
+
+function spawnRandomImage() {
+  const img = document.createElement("img");
+  img.src = spawnImages[Math.floor(Math.random() * spawnImages.length)];
+  img.className = "spawn";
+  img.style.width = Math.random() * 200 + 100 + "px";
+  img.style.left = Math.random() * (window.innerWidth - 200) + "px";
+  img.style.top = Math.random() * (window.innerHeight - 200) + "px";
+
+  document.body.appendChild(img);
+
+  const sound = error;
+  sound.currentTime = 0;
+  sound.play().catch(()=>{});
+
+  setTimeout(() => img.remove(), 2000);
+}
+
+function createBouncer(src) {
+  const img = document.createElement("img");
+  img.src = src;
+  img.className = "bouncer";
+
+  let w = Math.random() * 100 + 120;
+  let x = Math.random() * (window.innerWidth - w);
+  let y = Math.random() * (window.innerHeight - w);
+  let vx = (Math.random() * 4 + 2) * (Math.random() < 0.5 ? -1 : 1);
+  let vy = (Math.random() * 4 + 2) * (Math.random() < 0.5 ? -1 : 1);
+
+  img.style.width = w + "px";
+  img.style.left = x + "px";
+  img.style.top = y + "px";
+
+  document.body.appendChild(img);
+
+  setInterval(() => {
+    x += vx;
+    y += vy;
+
+    // bounce edges
+    if (x <= 0 || x >= window.innerWidth - w) vx *= -1;
+    if (y <= 0 || y >= window.innerHeight - w) vy *= -1;
+
+    // width pulsing
+    w = 120 + Math.sin(Date.now() / 250) * 40;
+    img.style.width = w + "px";
+
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+  }, 16);
+}
+
+/* ===== ALERT LOOP ===== */
+setInterval(() => {
+  alert("peter hehehehhehehehheheheh : )");
+}, 10000);
+
+/* ===== START EVERYTHING ===== */
+function startChaos() {
+  setInterval(spawnRandomImage, 5000);
+
+  createBouncer("freedownload.png");
+  createBouncer("scaryoo.png");
+}
+</script>
+<script>
+window.addEventListener("beforeunload", function (e) {
+  e.preventDefault();
+  e.returnValue = "peter does not want you to leave";
+});
+</script>
+
+
 </body>
 </html>
