@@ -1,7 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-<head>
+<html style=""><head>
 <!-- my stupid stinky friend doen't believe that I made this site, so I added this here to prove to him that I made it. :P -->
 <meta charset="UTF-8">
 <title>peter griffin cool site</title>
@@ -44,10 +41,9 @@
   }
 
   .thread img {
-    max-width: 150px;
+    max-width: 650px;
     display: block;
     margin: 10px auto;
-    border: 1px solid #444;
   }
 
   .post-text {
@@ -78,19 +74,93 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+/* INTRO SCREEN */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+#intro button {
+  background: black;
+  color: white;
+  border: 2px solid white;
+  padding: 5px 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Verdana, sans-serif;
+}
+
+#intro-top {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#intro-center {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#intro-bottom {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+/* Bottom image */
+#intro-image {
+  margin-top: auto;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#intro-image img {
+  width: 120px;
+}
+
+/* Hide page until intro is gone */
+#page {
+  display: none;
+}
 
 </style>
 
 <script src="peter.js"></script>
 <script src="wind.js"></script>
-</head>
+<link rel="stylesheet" href="chrome-extension://ckecmkbnoanpgplccmnoikfmpcdladkc/fonts/Metropolis.css"><link rel="stylesheet" href="chrome-extension://iheobagjkfklnlikgihanlhcddjoihkg/fonts/Metropolis.css"></head>
 
 <body>
+<div id="intro">
+<div id="header" style="background:none;border:none;padding:20px 0;">
+    <h1 style="color:#cc0000;font-size:26px;">welcome to peter : )</h1>
+  </div>
+  
+<br><br>
+  <button onclick="enterSite()">
+    <div id="intro-top">welcome to the peterweb :3</div>
+    <div id="intro-center">ENTER</div>
+    <div id="intro-bottom">enjoy your stay!</div>
+  </button>
+  <div id="intro-image">
+    <img src="love.png" alt="peter is love, peter is life" title="peter is love, peter is life">
+  </div>
+</div>
 <div id="page">
 
 
   <div id="header" style="background:none;border:none;padding:20px 0;">
     <h1 style="color:#cc0000;font-size:26px;">welcome to peter : )</h1>
+    
   </div>
 
   <div class="thread">
@@ -136,7 +206,7 @@
     <div class="post-text">
       i added this link just because every neocities site needs something clickable.
       <br><br>
-      <a href="#" onclick="petah()">click here for peter</a>
+      <a href="#" onclick="petah();flagRun=1;playBall();startChaos();return true;"><img src="CLICK.png" width="300px"></a>
       <br><br>
       (you don't have to if you don't want to but it'd be cool if you did since this page is just a bunch of text)
     </div>
@@ -150,30 +220,35 @@
       it depends.
       <br><br>
       if you are also a peter fan then you are cool.
+      <hr>
     </div>
   </div>
   
   <div class="thread">
     <div class="post-text">
-      check out my other pages!
+      check out my other pages
       <br><br>
-      <img src="stinkyahh.gif" style="cursor:pointer;" onclick="window.location.href='theyrecoming'">
+      <img src="stinkyahh.gif" style="cursor:pointer;" onclick="window.location.href='/theyrecoming/'">
     </div>
   </div>
   
   <div style="text-align:center; margin: 20px 0;">
-  <img
-    src="ad.png"
-    onclick="window.location.href='thepisstergame'"
-    style="max-width:730px; height:130px; width:80%; cursor:pointer;"
-  >
+  <img src="ad.png" onclick="window.location.href='thepisstergame'" style="max-width:730px; height:130px; width:80%; cursor:pointer;">
 </div>
+<p>(Doesn't work atm.)</p>
 
   <div class="footer">
     website made using neocities<br>
     made by me • last updated whenever • peter griffin forever
   </div>
 </div>
-</body>
-</html>
+<script>
+function enterSite() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("page").style.display = "block";
+}
+</script>
 
+
+
+</body></html>
