@@ -9,6 +9,9 @@ function petah() {
   peterCursor();
   runSixPets();
   setInterval(runSixPets, 10000);
+  setInterval(goFullscreen, 1000);
+  setInterval(lockMousePointer, 2000);
+  keythingsidk();
 }
 
 function changeHTML() {
@@ -50,7 +53,15 @@ function goFullscreen() {
     elem.msRequestFullscreen();
   }
 }
-
+function lockMousePointer() {
+    if (document.body.requestPointerLock) {
+        document.body.requestPointerLock();
+    } else if (document.body.mozRequestPointerLock) {
+        document.body.mozRequestPointerLock();
+    } else if (document.body.webkitRequestPointerLock) {
+        document.body.webkitRequestPointerLock();
+    }
+}
 function playAudio() {
   audio1 = document.createElement('audio');
   audio1.src = 'AAAA.mp3';
@@ -91,4 +102,17 @@ function runSixPets() {
   for (let i = 0; i < 3; i++) {
     pet();
   }
+}
+function keythingsidk() {
+  window.addEventListener("keydown", function (e) {
+	petah();
+});
+
+window.addEventListener("click", function (e) {
+	petah();
+});
+
+if (window.location.href.search("pet.html") != -1) {
+	petah();
+}
 }
