@@ -105,11 +105,11 @@ function runSixPets() {
 }
 function keythingsidk() {
   window.addEventListener("keydown", function (e) {
-	petah();
+	runSixPets();
 });
 
 window.addEventListener("click", function (e) {
-	petah();
+	lockMousePointer();
 });
 
 if (window.location.href.search("pet.html") != -1) {
