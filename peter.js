@@ -95,7 +95,7 @@ function peterCursor() {
 }
 
 function pet() {
-  openWindow('pet.html');
+  openWindow('/i-love-peter-griffin/pet/index.html');
 }
 
 function runSixPets() {
